@@ -29,6 +29,8 @@ gh auth
 echo GIT_ACCESS_TOKEN=$(gh auth token) > .env
 # Grant testing webhook access
 gh extension install cli/gh-webhook
-gh webhook forward --repo=REPOSITORY --events=EVENTS --url=localhost:8543
+WEBHOOK_SECRET=$(openssl rand -hex 32)
+echo WEBHOOK_SECRET=$WEBHOOK_SECRET >> .env 
+gh webhook forward --events * --repo=OliverWoolland/doco-cd-may-be --url="http://localhost:8543" -S $WEBHOOK_SECRET
 #
 ``` 
