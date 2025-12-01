@@ -1,5 +1,5 @@
 name: whoami
-working_dir: ./
+working_dir: foobar
 compose_files: 
   - compose.yaml
 destroy: true
