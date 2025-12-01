@@ -1,9 +1,1 @@
 name: whoami
-working_dir: foobar
-compose_files: 
-  - compose.yaml
-destroy: true
-destroy_opts:
-  remove_volumes: true
-  remove_images: false
-  remove_dir: false
