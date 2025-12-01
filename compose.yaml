@@ -4,7 +4,7 @@ services:
     image: ghcr.io/kimdre/doco-cd:latest
     restart: unless-stopped
     ports:
-      - "80:80" # Webhook endpoint
+      - "8543:80" # Webhook endpoint
       - "9120:9120" # Prometheus metrics
     environment:
       TZ: Europe/London
