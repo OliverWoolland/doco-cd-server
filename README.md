@@ -54,7 +54,7 @@ Next, setup a *development* webhook
 gh extension install cli/gh-webhook
 WEBHOOK_SECRET=$(openssl rand -hex 32)
 echo WEBHOOK_SECRET=$WEBHOOK_SECRET >> .env 
-gh webhook forward --repo=OliverWoolland/doco-cd-may-be --events="push" --url="http://localhost:8543 --secret=$WEBHOOK_SECRET
+gh webhook forward --repo=OliverWoolland/doco-cd-may-be --events="push" --url="http://localhost:8543" --secret=$WEBHOOK_SECRET
 ```
 
 You are now ready to try out doco-cd locally.
