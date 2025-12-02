@@ -1,8 +1,7 @@
-# doco-cd-may-be
-A quick test of doco-cd for automatically deploying github repos 
+# doco-cd-server
+A demonstration of a doco-cd configuration for automatically deploying Github repos 
 
-While generally `.doco-cd.yml` and the doco-cd deployment compose file would live 
-in different repos, they are bundled here to make everything needed obvious.
+This repo is *tightly coupled* to a [simple example](https://Github.com/OliverWoolland/doco-cd-example-repo) of a Docker Compose file to be deployed by doco-cd.
 
 ## Setup
 
@@ -20,8 +19,8 @@ nano .env
 Then put the doco-cd service up
 
 ```bash
-docker compose -f doco-compose.yaml up -d
-docker compose -f doco-compose.yaml logs  -f
+docker compose up -d
+docker compose logs  -f
 ```
 
 ## Development setup 
@@ -33,7 +32,7 @@ docker compose -f doco-compose.yaml logs  -f
 
 First install the Github cli tool (if you don't have it already). 
 
-A guide for specific distros can be found [here](https://github.com/cli/cli/blob/trunk/docs/install_linux.md), or the following general method can be used
+A guide for specific distros can be found [here](https://Github.com/cli/cli/blob/trunk/docs/install_linux.md), or the following general method can be used
 
 ```bash
 curl -sS https://webi.sh/gh | sh
@@ -54,7 +53,7 @@ Next, setup a *development* webhook
 gh extension install cli/gh-webhook
 WEBHOOK_SECRET=$(openssl rand -hex 32)
 echo WEBHOOK_SECRET=$WEBHOOK_SECRET >> .env 
-gh webhook forward --repo=OliverWoolland/doco-cd-may-be --events="push" --url="http://localhost:8543/v1/webhook" --secret=$WEBHOOK_SECRET
+gh webhook forward --repo=OliverWoolland/doco-cd-example-repo --events="push" --url="http://localhost:8543/v1/webhook" --secret=$WEBHOOK_SECRET
 ```
 
 You are now ready to try out doco-cd locally.
