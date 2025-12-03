@@ -25,6 +25,13 @@ docker compose logs  -f
 
 ## Development setup 
 
+Start doco-cd 
+
+```bash
+docker compose up -d
+docker compose logs  -f
+```
+
 > [!WARNING]
 > Read these commands carefully and understand what they do - they will not be useful or desirable for everyone.
 >
